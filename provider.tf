@@ -6,7 +6,7 @@ terraform {
   }
 }
 provider "google" {
-  project = "terraform-gcp"
+  project = "terraform-gcp-394718"
   region  = "us-central1"
   zone    = "us-central1-a"
   #credentials = file("c:\\terraform-cred\\key.json")
