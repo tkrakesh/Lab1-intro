@@ -17,10 +17,22 @@ resource "google_compute_instance" "web_server" {
   }
 
   metadata_startup_script = <<-EOT
-    #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install -y nginx
-  EOT
+   #!/bin/bash
+          set -e
+          echo "*****    Installing Nginx    *****"
+          apt update
+          apt install -y nginx
+          ufw allow 'Nginx HTTP'
+          systemctl enable nginx
+          systemctl restart nginx
+              
+          echo "*****   Installation Complteted!!   *****"
+              
+          echo "Welcome to Google Compute VM Instance deployed using Terraform!!!" > /var/www/html/index.html
+              
+          echo "*****   Startup script completes!!    *****"
+      EOT
+
 }
 
 output "nginx_url" {
