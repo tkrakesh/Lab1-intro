@@ -1,5 +1,5 @@
 resource "google_compute_instance" "web_server" {
-  name         = "nginx-instance"
+  name         = "nginx-instance-test"
   machine_type = "e2-micro"
   zone         = "us-central1-a"
 
